@@ -5,15 +5,17 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.Grids, Vcl.DBGrids,
-  Vcl.ExtCtrls, Vcl.StdCtrls;
+  Vcl.ExtCtrls, Vcl.StdCtrls, Vcl.ComCtrls;
 
 type
   TFrm_Tb_Clientes = class(TForm)
     Panel1: TPanel;
     DBGrid1: TDBGrid;
     Button1: TButton;
+    ProgressBar1: TProgressBar;
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
+    procedure Button1Click(Sender: TObject);
   private
     { Private declarations }
   public
@@ -27,7 +29,19 @@ implementation
 
 {$R *.dfm}
 
-uses U_Dados;
+uses U_Dados, U_Thread_Excel;
+
+procedure TFrm_Tb_Clientes.Button1Click(Sender: TObject);
+var
+ ThreadExcel : Carrega_Excel; // Busca minha class-thread na 'Unit' U_Thread_Excel
+begin
+
+ ThreadExcel := Carrega_Excel.Create(True);
+ ThreadExcel.FreeOnTerminate := True;
+ ThreadExcel.Resume;
+
+ MessageDlg('Concluído! =D', mtInformation, [mbOK], 0);
+end;
 
 procedure TFrm_Tb_Clientes.DBGrid1DrawColumnCell(Sender: TObject;
   const Rect: TRect; DataCol: Integer; Column: TColumn; State: TGridDrawState);

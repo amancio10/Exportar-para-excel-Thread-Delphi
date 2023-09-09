@@ -28,7 +28,7 @@ implementation
 
 {$R *.dfm}
 
-uses U_Tb_Clientes, U_Cad_Clientes;
+uses U_Tb_Clientes, U_Cad_Clientes, U_Dados;
 
 procedure TFrm_Principal.Button1Click(Sender: TObject);
 begin
@@ -43,7 +43,18 @@ begin
      procedure
      begin
        Application.CreateForm(TFrm_Cad_Clientes, Frm_Cad_Clientes); // Cria o form
-       Frm_Cad_Clientes.ShowModal;
+     end);
+
+     // Carregue suas ações aqui (Ex: Querys), antes de mostrar o form
+     Dados.Query_Clientes.Close;
+     Dados.Query_Clientes.SQL.Clear;
+     Dados.Query_Clientes.SQL.Add('Select * From Clientes');
+     Dados.Query_Clientes.Open;
+
+     TThread.Synchronize(nil,
+     procedure
+     begin
+       Frm_Cad_Clientes.ShowModal; //Mostra o form
      end);
 
     finally
@@ -51,7 +62,7 @@ begin
       TThread.Synchronize(nil,
       Procedure
       begin
-       Frm_Cad_Clientes.Free;
+       Frm_Cad_Clientes.Free; // Limpa o form da memoria
       End);
 
     end;
@@ -66,25 +77,33 @@ begin
  begin
 
    try
+     // Thread para abrir o form tabela de clientes
+     TThread.Synchronize(nil,
+     procedure
+     begin
+       Application.CreateForm(TFrm_Tb_Clientes, Frm_Tb_Clientes); // Cria o form
+     end);
+
+     // Carregue suas ações aqui, antes de mostrar o form
+
 
      TThread.Synchronize(nil,
      procedure
      begin
-       Application.CreateForm(TFrm_Tb_Clientes, Frm_Tb_Clientes);
-       Frm_Tb_Clientes.ShowModal;
+       Frm_Tb_Clientes.ShowModal; // Mostra o form
      end);
+
 
    finally
 
     TThread.Synchronize(nil,
     procedure
     begin
-      Frm_Tb_Clientes.Free;
+      Frm_Tb_Clientes.Free; // Limpa o form da memoria
     end);
    end;
 
- end
- ).Start;
+ end).Start;
 end;
 
 end.

@@ -19,7 +19,7 @@ object Frm_Tb_Clientes: TFrm_Tb_Clientes
     Height = 65
     Align = alTop
     TabOrder = 0
-    ExplicitWidth = 772
+    ExplicitWidth = 652
     object Button1: TButton
       Left = 8
       Top = 11
@@ -28,13 +28,14 @@ object Frm_Tb_Clientes: TFrm_Tb_Clientes
       Caption = 'Exportar'
       Style = bsCommandLink
       TabOrder = 0
+      OnClick = Button1Click
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Top = 65
     Width = 656
-    Height = 239
+    Height = 222
     Align = alClient
     DataSource = Dados.Source_Clientes
     TabOrder = 1
@@ -71,5 +72,16 @@ object Frm_Tb_Clientes: TFrm_Tb_Clientes
         Width = 200
         Visible = True
       end>
+  end
+  object ProgressBar1: TProgressBar
+    Left = 0
+    Top = 287
+    Width = 656
+    Height = 17
+    Align = alBottom
+    TabOrder = 2
+    ExplicitLeft = 256
+    ExplicitTop = 160
+    ExplicitWidth = 150
   end
 end

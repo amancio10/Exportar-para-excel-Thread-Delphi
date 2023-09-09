@@ -49,6 +49,7 @@ object Frm_Cad_Clientes: TFrm_Cad_Clientes
     Top = 34
     Width = 50
     Height = 23
+    CharCase = ecUpperCase
     DataField = 'ID'
     DataSource = Dados.Source_Clientes
     ReadOnly = True
@@ -59,6 +60,7 @@ object Frm_Cad_Clientes: TFrm_Cad_Clientes
     Top = 34
     Width = 275
     Height = 23
+    CharCase = ecUpperCase
     DataField = 'NOME'
     DataSource = Dados.Source_Clientes
     TabOrder = 0
@@ -68,6 +70,7 @@ object Frm_Cad_Clientes: TFrm_Cad_Clientes
     Top = 34
     Width = 100
     Height = 23
+    CharCase = ecUpperCase
     DataField = 'TELEFONE'
     DataSource = Dados.Source_Clientes
     TabOrder = 1
@@ -77,6 +80,7 @@ object Frm_Cad_Clientes: TFrm_Cad_Clientes
     Top = 82
     Width = 434
     Height = 23
+    CharCase = ecUpperCase
     DataField = 'ENDERECO'
     DataSource = Dados.Source_Clientes
     TabOrder = 2
