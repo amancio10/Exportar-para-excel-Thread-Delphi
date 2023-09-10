@@ -102,20 +102,16 @@
         </DelphiCompile>
         <DCCReference Include="U_Principal.pas">
             <Form>Frm_Principal</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Dados.pas">
             <Form>Dados</Form>
-            <FormType>dfm</FormType>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
         <DCCReference Include="U_Cad_Clientes.pas">
             <Form>Frm_Cad_Clientes</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Tb_Clientes.pas">
             <Form>Frm_Tb_Clientes</Form>
-            <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="U_Thread_Excel.pas"/>
         <BuildConfiguration Include="Base">

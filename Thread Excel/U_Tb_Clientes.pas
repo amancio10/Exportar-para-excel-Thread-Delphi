@@ -13,6 +13,7 @@ type
     DBGrid1: TDBGrid;
     Button1: TButton;
     ProgressBar1: TProgressBar;
+    procedure ThreadFim(Sender: TObject);
     procedure DBGrid1DrawColumnCell(Sender: TObject; const Rect: TRect;
       DataCol: Integer; Column: TColumn; State: TGridDrawState);
     procedure Button1Click(Sender: TObject);
@@ -30,6 +31,12 @@ implementation
 {$R *.dfm}
 
 uses U_Dados, U_Thread_Excel;
+
+procedure TFrm_Tb_Clientes.ThreadFim(Sender: TObject);
+begin
+ if Assigned(Carrega_Excel(Sender).FatalException) then                 // Verifica de há erro
+  ShowMessage(Exception(Carrega_Excel(Sender).FatalException).Message); // Se haver, exime erro para o usuário
+end;
 
 procedure TFrm_Tb_Clientes.Button1Click(Sender: TObject);
 var

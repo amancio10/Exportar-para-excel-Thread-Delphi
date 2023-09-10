@@ -45,11 +45,7 @@ begin
        Application.CreateForm(TFrm_Cad_Clientes, Frm_Cad_Clientes); // Cria o form
      end);
 
-     // Carregue suas ações aqui (Ex: Querys), antes de mostrar o form
-     Dados.Query_Clientes.Close;
-     Dados.Query_Clientes.SQL.Clear;
-     Dados.Query_Clientes.SQL.Add('Select * From Clientes');
-     Dados.Query_Clientes.Open;
+     // Carregue suas ações aqui, antes de mostrar o form
 
      TThread.Synchronize(nil,
      procedure
@@ -84,8 +80,11 @@ begin
        Application.CreateForm(TFrm_Tb_Clientes, Frm_Tb_Clientes); // Cria o form
      end);
 
-     // Carregue suas ações aqui, antes de mostrar o form
-
+     // Carregue suas ações aqui (Ex: Querys), antes de mostrar o form
+     Dados.Query_Clientes.Close;
+     Dados.Query_Clientes.SQL.Clear;
+     Dados.Query_Clientes.SQL.Add('Select * From Clientes');
+     Dados.Query_Clientes.Open;
 
      TThread.Synchronize(nil,
      procedure

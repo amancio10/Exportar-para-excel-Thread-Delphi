@@ -19,8 +19,8 @@ uses U_Dados, U_Tb_Clientes;
 
 procedure Carrega_Excel.Execute;
  var
-  PLANILHA: Variant;
-  LINHA,CONT: Integer;
+  PLANILHA    : Variant;
+  LINHA, CONT : Integer;
 begin
 
  CONT := Dados.Query_Clientes.RecordCount;
@@ -71,7 +71,6 @@ begin
   finally
     Dados.Query_Clientes.EnableControls;
     PLANILHA.Quit;
- //   PLANILHA := Unassigned;
 
       TThread.Synchronize(nil, // Uso do Synchronize pôr usar a interface
        procedure
@@ -80,6 +79,7 @@ begin
        end);
   end;
 
+   OnTerminate := Frm_Tb_Clientes.ThreadFim; // Execulta meu tratamento de erros
 end;
 
 end.
