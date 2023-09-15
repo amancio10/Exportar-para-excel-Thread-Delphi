@@ -1449,7 +1449,7 @@ object Frm_Principal: TFrm_Principal
     ExplicitLeft = -8
     ExplicitTop = -6
   end
-  object Button1: TButton
+  object Btn_Cad_Cliente: TButton
     Left = 7
     Top = 7
     Width = 202
@@ -1457,9 +1457,9 @@ object Frm_Principal: TFrm_Principal
     Caption = 'Cadastro de clientes'
     Style = bsCommandLink
     TabOrder = 0
-    OnClick = Button1Click
+    OnClick = Btn_Cad_ClienteClick
   end
-  object Button2: TButton
+  object Btn_Abrir_Tabela: TButton
     Left = 215
     Top = 8
     Width = 178
@@ -1467,6 +1467,6 @@ object Frm_Principal: TFrm_Principal
     Caption = 'Tabela de clientes'
     Style = bsCommandLink
     TabOrder = 1
-    OnClick = Button2Click
+    OnClick = Btn_Abrir_TabelaClick
   end
 end

@@ -11,10 +11,10 @@ type
   TFrm_Principal = class(TForm)
     Image1: TImage;
     Image2: TImage;
-    Button1: TButton;
-    Button2: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    Btn_Cad_Cliente: TButton;
+    Btn_Abrir_Tabela: TButton;
+    procedure Btn_Cad_ClienteClick(Sender: TObject);
+    procedure Btn_Abrir_TabelaClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -30,7 +30,7 @@ implementation
 
 uses U_Tb_Clientes, U_Cad_Clientes, U_Dados;
 
-procedure TFrm_Principal.Button1Click(Sender: TObject);
+procedure TFrm_Principal.Btn_Cad_ClienteClick(Sender: TObject);
 begin
  TThread.CreateAnonymousThread(
   procedure
@@ -66,7 +66,7 @@ begin
    end).Start;
 end;
 
-procedure TFrm_Principal.Button2Click(Sender: TObject);
+procedure TFrm_Principal.Btn_Abrir_TabelaClick(Sender: TObject);
 begin
  TThread.CreateAnonymousThread(
  procedure
@@ -91,7 +91,6 @@ begin
      begin
        Frm_Tb_Clientes.ShowModal; // Mostra o form
      end);
-
 
    finally
 
